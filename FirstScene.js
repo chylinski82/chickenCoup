@@ -13,15 +13,15 @@ class FirstScene extends Phaser.Scene {
         this.load.image('arrow-left', './images/arrow-left.png');
         this.load.image('arrow-right', './images/arrow-right.png');
         this.load.image('ground', 'images/platform.png');
-        //this.load.audio('theme', 'audio/theme.mp3');
+        this.load.audio('theme', 'audio/theme.mp3');
         
     }
 
     create() {
         // audio
-        //this.music = this.sound.add('theme');
+        gameState.music = this.sound.add('theme');
 
-        //this.music.play();
+        gameState.music.play();
 
         // main
 
