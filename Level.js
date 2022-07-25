@@ -38,40 +38,47 @@ class Level extends Phaser.Scene {
 
         gameState.baskets = this.physics.add.group();
 
-        this.physics.add.collider(gameState.eggs, gameState.grounds, (egg) => {
+        this.physics.add.collider(gameState.eggs, gameState.grounds, (egg) => { 
+            egg.destroy();
 
             let x = egg.x;
-            egg.destroy();
-    
             this.add.image(x, 560, 'brokenEgg').setScale(0.05);
+
+            gameState.lives--;
           
-            if (gameState.lives === 3) {
+            if (gameState.lives === 2) {
                 gameState.heart3.destroy();
-                gameState.lives--;
+                this.cameras.main.shake(400, .01);
     
             }
-            else if (gameState.lives === 2) {
+            else if (gameState.lives === 1) {
                 gameState.heart2.destroy();
-                gameState.lives--;
+                this.cameras.main.shake(400, .01);
     
             } else {
                 gameState.heart1.destroy();
-                gameState.lives--;
-    
+                this.cameras.main.shake(800, .025);
+                /*this.cameras.main.fade(2000, 255, 0 , 0, false, function(camera, progress) {
+                    if (progress > .8) {
+                        
+                    }
+                });*/
+
                 this.physics.pause();
                 gameState.music.pause();
-    
+
                 this.add.text(180, 250, 'Game Over', { fontSize: '15px', fill: '#000000' });
                 this.add.text(152, 270, 'Click to Restart', { fontSize: '15px', fill: '#000000' });
-    
+
                 this.input.on('pointerup', () =>{
                     gameState.score = 0;
                     gameState.levelScore = 0;
-                    this.scene.stop('Level1');
+                    gameState.lives = 3;
+                    this.scene.stop('Level');
                     this.scene.start('FirstScene');
                 });
     
-            }
+            }        
         });
     
         this.physics.add.overlap(gameState.eggs, gameState.baskets, function (egg) {
