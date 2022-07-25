@@ -7,7 +7,8 @@ class Level extends Phaser.Scene {
         'Level2': 'Level3',
         'Level3': 'Level4',
         'Level4': 'Level5',
-        'Level5': 'Level6'
+        'Level5': 'Level6',
+        'Level6': 'Level7'
       }
     }
 
@@ -74,11 +75,15 @@ class Level extends Phaser.Scene {
                     gameState.score = 0;
                     gameState.levelScore = 0;
                     gameState.lives = 3;
+                    gameState.level = 1;
                     this.scene.stop('Level');
                     this.scene.start('FirstScene');
                 });
     
-            }        
+            }
+            
+    
+            
         });
     
         this.physics.add.overlap(gameState.eggs, gameState.baskets, function (egg) {
@@ -121,14 +126,14 @@ class Level extends Phaser.Scene {
         this.anims.create({
             key: 'rollingLeft',
             frames: this.anims.generateFrameNumbers('eggLeft', { start: 0, end: 4 }),
-            frameRate: 5,
+            frameRate: this.frameSpeed,
             repeat: -1
         });
 
         this.anims.create({
             key: 'rollingRight',
             frames: this.anims.generateFrameNumbers('eggRight', { start: 0, end: 4 }),
-            frameRate: 5,
+            frameRate: this.frameSpeed,
             repeat: -1
         });
 
@@ -193,7 +198,7 @@ class Level extends Phaser.Scene {
 
         // next level
 
-        if (gameState.levelScore % 20 === 0 && gameState.levelScore !== 0 && gameState.score < 101) {
+        if (gameState.levelScore % 20 === 0 && gameState.levelScore !== 0 && gameState.score < 121) {
             gameState.levelScore = 0;
             gameState.level++;
             this.scene.start(this.nextLevel[this.levelKey]);
@@ -208,6 +213,7 @@ class Level1 extends Level {
         this.delay = 1500;
         this.velocityX = 25;
         this.velocityY = 50;
+        this.frameSpeed = 5;
     }
 }
 
@@ -217,6 +223,7 @@ class Level2 extends Level {
         this.delay = 1200;
         this.velocityX = 25;
         this.velocityY = 50;
+        this.frameSpeed = 5;
     }
 }
 
@@ -226,6 +233,7 @@ class Level3 extends Level {
         this.delay = 900;
         this.velocityX = 25;
         this.velocityY = 50;
+        this.frameSpeed = 5;
     }
 }
 
@@ -235,6 +243,7 @@ class Level4 extends Level {
         this.delay = 600;
         this.velocityX = 25;
         this.velocityY = 50;
+        this.frameSpeed = 5;
     }
 }
 
@@ -244,6 +253,7 @@ class Level5 extends Level {
         this.delay = 600;
         this.velocityX = 50;
         this.velocityY = 100;
+        this.frameSpeed = 10;
     }
 }
 
@@ -253,5 +263,16 @@ class Level6 extends Level {
         this.delay = 300;
         this.velocityX = 50;
         this.velocityY = 100;
+        this.frameSpeed = 10;
+    }
+}
+
+class Level7 extends Level {
+    constructor() {
+        super('Level7')
+        this.delay = 300;
+        this.velocityX = 75;
+        this.velocityY = 150;
+        this.frameSpeed = 12;
     }
 }
