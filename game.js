@@ -1,5 +1,11 @@
 const gameState = {
+    score: 0,
 
+    levelScore: 0,
+
+    lives: 3,
+
+    level: 1
 }
 
 config = {
@@ -13,7 +19,7 @@ config = {
           enableBody: true,
         }
     },
-    scene: [FirstScene, Level1, Level2, Level3]
+    scene: [FirstScene, Level1, Level2, Level3, Level4, Level5, Level6]
 }
 
 game = new Phaser.Game(config);

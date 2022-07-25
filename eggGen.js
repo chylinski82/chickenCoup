@@ -9,7 +9,7 @@ function eggGen() {
         eggDirection = 'eggLeft';
         eggAnimation = 'rollingLeft'
 
-        velocityX = 25;
+        velocityX = this.velocityX;
         
         if (num < .25) {
             yCoord = 220;
@@ -23,7 +23,7 @@ function eggGen() {
         eggDirection = 'eggRight';
         eggAnimation = 'rollingRight';
 
-        velocityX = -25
+        velocityX = -(this.velocityX)
 
         if (num < .75) {
             yCoord = 220;
@@ -33,7 +33,7 @@ function eggGen() {
         }
     }
 
-    let egg = gameState.eggs.create(xCoord, yCoord, eggDirection).setVelocity(velocityX, 50).setScale(.6);
+    let egg = gameState.eggs.create(xCoord, yCoord, eggDirection).setVelocity(velocityX, this.velocityY).setScale(.6);
 
     egg.anims.play(eggAnimation);
 }

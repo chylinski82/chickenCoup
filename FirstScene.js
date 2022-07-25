@@ -5,7 +5,7 @@ class FirstScene extends Phaser.Scene {
 
     preload() {
         this.load.image('bg', './images/sky.png');
-        this.load.image('mummy', '/images/mummy.png');
+        this.load.image('mummy', './images/mummy.png');
         this.load.image('daddy', './images/daddy.png');
         this.load.image('sarai', './images/Sarai.png');
         this.load.image('israel', './images/Israel_orange_crop.png');
