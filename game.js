@@ -12,6 +12,7 @@ config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
+    backgroundColor: 0x66b3ff,
     physics: {
         default: "arcade",
         arcade: {
@@ -19,7 +20,7 @@ config = {
           enableBody: true,
         }
     },
-    scene: [FirstScene, Level1, Level2, Level3, Level4, Level5, Level6, Level7]
+    scene: [FirstScene, Level1, Level2, Level3, Level4, Level5, Level6, Level7, Level8, Level9, Level10, Level11, Level12]
 }
 
 game = new Phaser.Game(config);

@@ -4,7 +4,6 @@ class FirstScene extends Phaser.Scene {
 	}
 
     preload() {
-        this.load.image('bg', './images/sky.png');
         this.load.image('mummy', './images/mummy.png');
         this.load.image('daddy', './images/daddy.png');
         this.load.image('sarai', './images/Sarai.png');
@@ -18,13 +17,16 @@ class FirstScene extends Phaser.Scene {
     }
 
     create() {
+        // background, extra layer
+
+        const graphics = this.add.graphics();
+        graphics.fillGradientStyle(0xffff99, 0xb3ffff, 0x009900, 0x99ff99,.5);
+        graphics.fillRect(0, 0, 800, 600);
+
         // audio
         gameState.music = this.sound.add('theme');
-
-        //this.sound.loop = true;
-
         gameState.music.play();
-        gameState.music.loop = true;
+        gameState.music.loop = true; 
 
         // main
 
@@ -39,8 +41,6 @@ class FirstScene extends Phaser.Scene {
 
             });
         }
-
-        gameState.background = this.add.image(0, 0, 'bg').setOrigin(0, 0);
 
         const startText = this.add.text(260, 100, 'Choose character', { fontSize: '30px', fill: '#000000' });
 
@@ -103,6 +103,14 @@ class FirstScene extends Phaser.Scene {
     }
 
     update() {
+        if (!document.hasFocus()) {
+            gameState.music.pause();
+
+        }
+        if (document.hasFocus()) {
+            gameState.music.resume();
+
+        }
         if (gameState.characterSelected) {
             this.scene.stop('FirstScene');
             this.scene.start('Level1');
