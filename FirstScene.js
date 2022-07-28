@@ -17,6 +17,7 @@ class FirstScene extends Phaser.Scene {
     }
 
     create() {
+        
         // background, extra layer
 
         const graphics = this.add.graphics();
