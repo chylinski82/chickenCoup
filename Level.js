@@ -35,8 +35,7 @@ class Level extends Phaser.Scene {
     }
 
     create() {
-        screen.orientation.lock('landscape');
-        this.scale.startFullscreen();
+        //this.scale.startFullscreen();
 
         // ramps (chicken coops)
 
@@ -141,8 +140,13 @@ class Level extends Phaser.Scene {
         gameState.basket.rotation -= 0.5;
 
         gameState.heart1 = this.add.image(100, 60, 'heart').setScale(.04);
-        gameState.heart2 = this.add.image(160, 60, 'heart').setScale(.04);
-        gameState.heart3 = this.add.image(220, 60, 'heart').setScale(.04);
+        if (gameState.lives > 1) {
+            gameState.heart2 = this.add.image(160, 60, 'heart').setScale(.04);
+
+        }
+        if (gameState.lives > 2) {
+            gameState.heart3 = this.add.image(220, 60, 'heart').setScale(.04);
+        }
 
         // displaying character
 
@@ -175,18 +179,16 @@ class Level extends Phaser.Scene {
         gameState.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         gameState.keyL = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L);
 
-        //const line1 = this.add.line(this.add.line(0, 0, 200, 260, 350, 300, 0xff0000, 1));
-
-        let rectangle1 = this.add.rectangle(130, 260, 360, 120, 0xFFF070).setAlpha(.35).setInteractive();
+        let rectangle1 = this.add.rectangle(130, 260, 360, 120, 0xFFF070).setAlpha(0).setInteractive();
         rectangle1.on('pointerdown', basketUpLeft);
 
-        let rectangle2 = this.add.rectangle(670, 260, 360, 120, 0xff4000).setAlpha(.35).setInteractive();
+        let rectangle2 = this.add.rectangle(670, 260, 360, 120, 0xff4000).setAlpha(0).setInteractive();
         rectangle2.on('pointerdown', basketUpRight);
 
-        let rectangle3 = this.add.rectangle(130, 380, 360, 120, 0x990099).setAlpha(.25).setInteractive();
+        let rectangle3 = this.add.rectangle(130, 380, 360, 120, 0x990099).setAlpha(0).setInteractive();
         rectangle3.on('pointerdown', basketDownLeft);
 
-        let rectangle4 = this.add.rectangle(670, 380, 360, 120, 0xFF6699).setAlpha(.35).setInteractive();
+        let rectangle4 = this.add.rectangle(670, 380, 360, 120, 0xFF6699).setAlpha(0).setInteractive();
         rectangle4.on('pointerdown', basketDownRight);
 
         gameState.hen1 = this.add.image(47, 213, 'hen').setScale(0.05).setInteractive();
