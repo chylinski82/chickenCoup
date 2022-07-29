@@ -33,7 +33,7 @@ function eggGen() {
         }
     }
 
-    let egg = gameState.eggs.create(xCoord, yCoord, eggDirection).setScale(.6).setVelocity(velocityX, this.velocityY);
+    let egg = gameState.eggs.create(xCoord, yCoord, eggDirection).setScale(.6).setVelocity(velocityX / 2, this.velocityY / 2);
 
     egg.anims.play(eggAnimation);
 }
