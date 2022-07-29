@@ -301,7 +301,7 @@ class Level extends Phaser.Scene {
 class Level1 extends Level {
     constructor() {
         super('Level1')
-        this.delay = 1500;
+        this.delay = 1500 * 1.5;
         this.velocityX = 100;
         this.velocityY = 50;
         this.frameSpeed = 5;
@@ -311,7 +311,7 @@ class Level1 extends Level {
 class Level2 extends Level {
     constructor() {
         super('Level2')
-        this.delay = 1200;
+        this.delay = 1200 * 1.5;
         this.velocityX = 100;
         this.velocityY = 50;
         this.frameSpeed = 7;
@@ -321,7 +321,7 @@ class Level2 extends Level {
 class Level3 extends Level {
     constructor() {
         super('Level3')
-        this.delay = 900;
+        this.delay = 900 * 1.5;
         this.velocityX = 100;
         this.velocityY = 50;
         this.frameSpeed = 7;
@@ -331,7 +331,7 @@ class Level3 extends Level {
 class Level4 extends Level {
     constructor() {
         super('Level4')
-        this.delay = 750;
+        this.delay = 750 * 1.5;
         this.velocityX = 100;
         this.velocityY = 50;
         this.frameSpeed = 7;
@@ -341,7 +341,7 @@ class Level4 extends Level {
 class Level5 extends Level {
     constructor() {
         super('Level5')
-        this.delay = 600;
+        this.delay = 600 * 1.5;
         this.velocityX = 100;
         this.velocityY = 50;
         this.frameSpeed = 7;
@@ -351,7 +351,7 @@ class Level5 extends Level {
 class Level6 extends Level {
     constructor() {
         super('Level6')
-        this.delay = 750;
+        this.delay = 750 * 1.5;
         this.velocityX = 120;
         this.velocityY = 60;
         this.frameSpeed = 10;
@@ -361,7 +361,7 @@ class Level6 extends Level {
 class Level7 extends Level {
     constructor() {
         super('Level7')
-        this.delay = 600;
+        this.delay = 600 * 1.5;
         this.velocityX = 120;
         this.velocityY = 60;
         this.frameSpeed = 10;
@@ -371,7 +371,7 @@ class Level7 extends Level {
 class Level8 extends Level {
     constructor() {
         super('Level8')
-        this.delay = 600;
+        this.delay = 600 * 1.5;
         this.velocityX = 130;
         this.velocityY = 65;
         this.frameSpeed = 12;
@@ -381,7 +381,7 @@ class Level8 extends Level {
 class Level9 extends Level {
     constructor() {
         super('Level9')
-        this.delay = 500;
+        this.delay = 500 * 1.5;
         this.velocityX = 130;
         this.velocityY = 65;
         this.frameSpeed = 12;
@@ -391,7 +391,7 @@ class Level9 extends Level {
 class Level10 extends Level {
     constructor() {
         super('Level10')
-        this.delay = 400;
+        this.delay = 400 * 1.5;
         this.velocityX = 130;
         this.velocityY = 65;
         this.frameSpeed = 12;
@@ -401,7 +401,7 @@ class Level10 extends Level {
 class Level11 extends Level {
     constructor() {
         super('Level11')
-        this.delay = 350;
+        this.delay = 350 * 1.5;
         this.velocityX = 130;
         this.velocityY = 65;
         this.frameSpeed = 13;
@@ -411,7 +411,7 @@ class Level11 extends Level {
 class Level12 extends Level {
     constructor() {
         super('Level12')
-        this.delay = 320;
+        this.delay = 320 * 1.5;
         this.velocityX = 130;
         this.velocityY = 65;
         this.frameSpeed = 14;
