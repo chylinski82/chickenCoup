@@ -35,7 +35,7 @@ class Level extends Phaser.Scene {
     }
 
     create() {
-        //this.scale.startFullscreen();
+        this.scale.startFullscreen();
 
         // ramps (chicken coops)
 
